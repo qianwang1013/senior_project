@@ -24,7 +24,7 @@ See [Trello](https://trello.com/b/NNZBZzlp/senior-project-srs). We will use user
 Every Wednesday 2PM
 
 ### Suggested Read Material 
-#[MIT citation software](http://libguides.mit.edu/references)
-#[General overview with product roundup](https://en.wikipedia.org/wiki/Comparison_of_reference_management_software)
-#[A slightly different perspective, from UC Berkeley](http://www.lib.berkeley.edu/sciences/managing_citations)
+#####[MIT citation software](http://libguides.mit.edu/references)
+#####[General overview with product roundup](https://en.wikipedia.org/wiki/Comparison_of_reference_management_software)
+#####[A slightly different perspective, from UC Berkeley](http://www.lib.berkeley.edu/sciences/managing_citations)
 
