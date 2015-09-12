@@ -6,6 +6,11 @@
 		</div>
 		<input data-ng-model = "queryString"class = "form-control"type = "text" />
 	</div>
+	<div id = "search" data-ng-show = "autoString">
+		<a data-ng-repeat = "keyword in autoString" data-ng-click = "finishMyString(keyword)">
+		{{keyword}}
+		</a>
+	</div>
 
 	<div class = "row">
 		<div class = "col-xs-4">
@@ -15,5 +20,6 @@
 		<button class = "btn" data-ng-click = "addKeywords()">Add</button>
 	</div>
 
+	<div value = "search" search> </div>
 
 </section>

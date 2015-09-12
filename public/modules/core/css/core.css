@@ -13,3 +13,12 @@
 .ng-valid.ng-dirty {
 	border-color: #78FA89;
 }
+
+
+#search{
+	font-family: 'Slabo 27px', serif;
+	padding: 25px;
+	width:100%;
+	background: #E8E8E6;
+	border-radius: 0px 0px  7px 7px;
+}
