@@ -1,10 +1,15 @@
+# Notes
+#### All information stores in MongoLab, so we can use the same set of data
+### Current exsiting user
+Username: admin <br />
+Password: admin1234
 
 # Develop Online Scientific Reference System
 ## Senior Project
 
  *Phase 1:*
- *Date: 9/5/2015*
- *Starting preparing, designing the actual project* 
+ *Date: 9/16/2015*
+ *Adding new module - file* 
 
 ### SUMMARY
 Develop scientific citation (reference) system for large 
