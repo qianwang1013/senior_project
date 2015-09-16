@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/handsongainesville-app-dev',
+	db: 'mongodb://SeniorProject:SeniorProject@ds027419.mongolab.com:27419/srs',
 	app: {
 		title: 'HandsOnGainesville App - Development Environment'
 	},
