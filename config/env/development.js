@@ -3,7 +3,7 @@
 module.exports = {
 	db: 'mongodb://SeniorProject:SeniorProject@ds027419.mongolab.com:27419/srs',
 	app: {
-		title: 'HandsOnGainesville App - Development Environment'
+		title: 'SRS App - Development Environment'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
