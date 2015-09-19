@@ -10,11 +10,15 @@ var mongoose = require('mongoose'),
  * File Schema
  */
 var FileSchema = new Schema({
-	name: {
+	title: {
 		type: String,
 		default: '',
 		required: 'Please fill File name',
 		trim: true
+	},
+	notes: {
+		type: String, 
+		default: ''
 	},
 	created: {
 		type: Date,

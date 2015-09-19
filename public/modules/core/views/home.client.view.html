@@ -6,7 +6,7 @@
 		</div>
 		<input data-ng-model = "queryString"class = "form-control"type = "text" />
 	</div>
-	<div id = "search" data-ng-show = "autoString">
+	<div id = "search" data-ng-show = "autoString && !isClosed">
 		<a data-ng-repeat = "keyword in autoString" data-ng-click = "finishMyString(keyword)">
 		{{keyword}}
 		</a>

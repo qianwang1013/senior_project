@@ -5,7 +5,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 	function($scope, Authentication, $http, $location, Keywords) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
-
+		$scope.isClosed = true;
 		$scope.queryString = ''; //input query string
 		$scope.autoString = [];  //output autoFit string array
 
@@ -21,9 +21,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 				$scope.autoString = [];
 			}
 			else{
+				$scope.isClosed = false;
 				areYouInArray($scope.keywordStrings, $scope.queryString);
 			}
-			console.log($scope.autoString);
 		});
 
 
@@ -68,7 +68,12 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		};
 
 		$scope.finishMyString = function(data){
-			$scope.queryString = data;
+			if(data === $scope.queryString){
+				$scope.isClosed = true;
+			}
+			else{
+				$scope.queryString = data;
+			}
 		};
 	}
 ]);

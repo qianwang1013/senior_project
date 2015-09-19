@@ -6,9 +6,26 @@
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
                 <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
+                    <label class="control-label" for="title">Title</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="author">Author</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
+                    </div>
+                </div>
+                <div class = "form-group">
+                    
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="notes">Notes and Comments</label>
+                    <div class="controls">
+                        
+                        <textarea data-ng-model="notes" name="notes"  id="notes" class="form-control" cols="30" rows="10" placeholder="Notes and Comments"></textarea>
+                        
                     </div>
                 </div>
                 <div class="form-group">
