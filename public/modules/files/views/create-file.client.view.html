@@ -18,7 +18,18 @@
                     </div>
                 </div>
                 <div class = "form-group">
-                    
+                     <label class="control-label" for="keywords">Keywords</label> 
+                     <ul class = "list-inline">
+                         <li class = "btn btn-primary ">Apple</li>
+                     </ul>
+
+                     <div>
+                        <span class = "fa fa-plus" data-ng-click = "toggleState()" data-ng-if = "!ifReady"></span>
+                        <div data-ng-if = "ifReady">
+                        <input type = "text" data-ng-model="keyword" id="keyword" class="form-control" placeholder="Enter your keyword"></input>
+                        <button class = "btn btn-default" data-ng-click = "addKeyword()">Add</button>
+                        </div>
+                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="notes">Notes and Comments</label>

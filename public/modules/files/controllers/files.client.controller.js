@@ -9,7 +9,9 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 		$scope.create = function() {
 			// Create new File object
 			var file = new Files ({
-				name: this.name
+				title: this.title,
+				notes: this.notes
+
 			});
 
 			// Redirect after save
@@ -61,6 +63,22 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 			$scope.file = Files.get({ 
 				fileId: $stateParams.fileId
 			});
+		};
+
+
+
+		$scope.ifReady = false;
+		$scope.toggleState = function(){
+			$scope.ifReady = !$scope.ifReady;
+		};
+
+		$scope.addKeyword = function(){
+
+
+
+
+
+			$scope.toggleState();
 		};
 	}
 ]);
