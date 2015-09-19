@@ -25,7 +25,8 @@ module.exports = {
 			]
 		},
 		css: [
-			'public/modules/**/css/*.css'
+			'public/modules/**/css/*.css',
+			'public/lib/Hover-master/css/hover.css'
 		],
 		js: [
 			'public/config.js',

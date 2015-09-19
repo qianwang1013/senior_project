@@ -3,16 +3,34 @@
         <h1>Files</h1>
     </div>
     <div class="list-group">
-        <a data-ng-repeat="file in files" data-ng-href="#!/files/{{file._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="file.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="file.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="file.name"></h4>
-        </a>
-    </div>
+<!--         <a data-ng-repeat="file in files" data-ng-href="#!/files/{{file._id}}" class="list-group-item"> -->
+            <!-- This is the noteCard that display a note or comment of the file, 
+                 And related information of the file -->
+            <div id = "file" class = "hvr-grow">
+                <div class = "row">
+                    <div id = "notes" class = "col-xs-7">
+
+                        <div class = "title">
+                        Title
+                        </div>
+                        My testing notes. This article is about bla bla bla. 
+                        The idea is that this is a note card which presents notes and comments. 
+                        Like it did in SQN. On the right side it will have the detial information of the notes. 
+                    </div>
+
+                    <div class = "col-xs-1 verticalLine">
+                    </div>
+
+                    <div id = "detial" class = "col-xs-4">
+                        Here goes the description
+                    </div>
+                </div>
+            </div>
+
+
+
+<!--         </a>
+ --></div>
     <div class="alert alert-warning text-center" data-ng-hide="!files.$resolved || files.length">
     	No Files yet, why don't you <a href="/#!/files/create">create one</a>?
     </div>
