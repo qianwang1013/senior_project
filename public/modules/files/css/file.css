@@ -15,6 +15,23 @@
 }
 
 #notes .body{
-	font-size: 25px;
+	font-family: QUICKSAND;
+	font-style: italic;
+	font-size: 20px;
+	text-indent: 20px;
 }
 
+#detail .cusLabel{
+	font-family: Sigmar One;
+	font-size: 22px;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#detail .info{
+	font-family: QUICKSAND;
+	font-style: italic;
+	font-size: 20px;
+}
