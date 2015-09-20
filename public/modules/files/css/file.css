@@ -41,3 +41,8 @@
 	font-style: italic;
 	font-family: Adine Kirnberg;
 }
+
+.list-inline{
+	display: inline-block;
+	padding-right: 10px;
+}

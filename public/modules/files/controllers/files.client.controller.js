@@ -4,14 +4,17 @@
 angular.module('files').controller('FilesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Files',
 	function($scope, $stateParams, $location, Authentication, Files) {
 		$scope.authentication = Authentication;
-
+		$scope.keywords = [];
 		// Create new File
 		$scope.create = function() {
+			var keywords = $scope.keywords.toString();
+			console.log(keywords);
 			// Create new File object
 			var file = new Files ({
 				title: this.title,
-				notes: this.notes
-
+				notes: this.notes,
+				author: this.author,
+				keywords: keywords
 			});
 
 			// Redirect after save
@@ -73,12 +76,12 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 		};
 
 		$scope.addKeyword = function(){
+			if(this.keyword){
+				$scope.keywords.push(this.keyword);
+				$scope.keyword = '';
+			}
+			$scope.toggleState();				
 
-
-
-
-
-			$scope.toggleState();
 		};
 	}
 ]);

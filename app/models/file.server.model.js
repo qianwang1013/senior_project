@@ -20,6 +20,18 @@ var FileSchema = new Schema({
 		type: String, 
 		default: ''
 	},
+	firstName: {
+		type: String,
+		default: ''
+	},
+	lastName: {
+		type: String,
+		default: ''
+	},
+	keywords: {
+		type: String, 
+		default: ''
+	},
 	created: {
 		type: Date,
 		default: Date.now
