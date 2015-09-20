@@ -1,23 +1,14 @@
 <section data-ng-controller="HomeController" data-ng-init = "getKeywords()">
 
-	<div class = "row">
-		<div class = "col-xs-4">
-			Testing keywords auto filling
-		</div>
-		<input data-ng-model = "queryString"class = "form-control"type = "text" />
-	</div>
-	<div id = "search" data-ng-show = "autoString && !isClosed">
-		<a data-ng-repeat = "keyword in autoString" data-ng-click = "finishMyString(keyword)">
-		{{keyword}}
-		</a>
-	</div>
 
-	<div class = "row">
-		<div class = "col-xs-4">
-		Adding new keywords
+	<div id = "search">
+		<div class = "row">
+			<input data-ng-model = "queryString"class = "form-control"type = "text" />
 		</div>
-		<input data-ng-model = "keyword" class = "form-control" type = "text" />
-		<button class = "btn" data-ng-click = "addKeywords()">Add</button>
+		<div class = "result" data-ng-show = "queryString && autoString && !isClosed">
+			<a data-ng-repeat = "keyword in autoString" data-ng-click = "finishMyString(keyword)">
+			{{keyword}}
+			</a>
+		</div>
 	</div>
-
 </section>

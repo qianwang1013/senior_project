@@ -14,8 +14,10 @@
 	border-color: #78FA89;
 }
 
-
-#search{
+#search {
+	margin-top: 40%;
+}
+#search .result{
 	font-family: 'Slabo 27px', serif;
 	padding: 25px;
 	width:100%;
