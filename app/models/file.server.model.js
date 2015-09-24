@@ -32,6 +32,14 @@ var FileSchema = new Schema({
 		type: String, 
 		default: ''
 	},
+	description: {
+		type: String,
+		default: ''
+	},
+	abstract: {
+		type: String, 
+		default: ''
+	},
 	created: {
 		type: Date,
 		default: Date.now

@@ -11,10 +11,19 @@
                         <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label" for="author">Author</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
+                <div class= "row">
+                    <div class="form-group col-xs-3">
+                        <label class="control-label" for="firstName">Author first Name</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="firstName" id="firstName" class="form-control" placeholder="firstName" required>
+                        </div>
+                    </div>
+
+                     <div class="form-group  col-xs-3 col-xs-offset-3">
+                        <label class="control-label" for="lastName">Author last Name</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="lastName" id="lastName" class="form-control" placeholder="lastName" required>
+                        </div>
                     </div>
                 </div>
                 <div class = "form-group">
@@ -31,13 +40,35 @@
                         </div>
                      </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="description">Description</label>
+                    <div class="controls">
+                        
+                        <textarea data-ng-model="description" name="description"  id="notes" class="form-control" cols="30" rows="3" placeholder="A breif comment of the article should be in 2 or 3 sentences."></textarea>
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="abstract">Abstract</label>
+                    <div class="controls">
+                        
+                        <textarea data-ng-model="abstract" name="abstract"  id="abstract" class="form-control" cols="30" rows="10" placeholder="Enter your abstract here"></textarea>
+                    
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label class="control-label" for="notes">Notes and Comments</label>
                     <div class="controls">
                         
-                        <textarea data-ng-model="notes" name="notes"  id="notes" class="form-control" cols="30" rows="10" placeholder="Notes and Comments"></textarea>
+                        <textarea data-ng-model="notes" name="notes"  id="notes" class="form-control" cols="30" rows="5" placeholder="Notes and Comments"></textarea>
                         
                     </div>
+                </div>
+
+                <div class = "form-group">
+                    <input type = "file">
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-default">

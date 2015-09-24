@@ -13,7 +13,10 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 			var file = new Files ({
 				title: this.title,
 				notes: this.notes,
-				author: this.author,
+				firstName: this.firstName,
+				lastName: this.lastName,
+				abstract: this.abstract,
+				description: this.description,
 				keywords: keywords
 			});
 
