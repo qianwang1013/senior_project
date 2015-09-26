@@ -20,11 +20,7 @@ var FileSchema = new Schema({
 		type: String, 
 		default: ''
 	},
-	firstName: {
-		type: String,
-		default: ''
-	},
-	lastName: {
+	author: {
 		type: String,
 		default: ''
 	},

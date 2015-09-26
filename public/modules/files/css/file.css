@@ -33,7 +33,7 @@
 #detail .info{
 	font-family: QUICKSAND;
 	font-style: italic;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 #detail .keywords{
@@ -45,4 +45,22 @@
 .list-inline{
 	display: inline-block;
 	padding-right: 10px;
+}
+
+.hr {
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+    display: block;
+    position: relative;
+    padding: 0;
+    margin: 8px auto;
+    height: 0;
+    max-height: 0;
+    font-size: 1px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #ffffff;
 }

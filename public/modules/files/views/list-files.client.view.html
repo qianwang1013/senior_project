@@ -19,12 +19,12 @@
 
                     <div id = "detail" class = "col-xs-5">
                         <span class="cusLabel">Author:</span>
-                            <span class = "info">{{file.lastName}}, {{file.firstName}}</span><br>
+                            <span class = "info">{{file.author}}</span><br>
                         <span class = "cusLabel">Citation:</span>
-                            <span class = "info">For Later<span><br>
+                            <span class = "info">{{getCitation(file)}}</span><br>
                         <span class = "cusLabel">Related keywords:</span>                    
                             <span class = "keywords" data-ng-if = "file.keywords">{{file.keywords}}</span>
-                            <span class = "text-muted">no existing keywords</span>
+                            <span class = "text-muted" data-ng-if = "!file.keywords">no existing keywords</span>
                         </span>
                     </div>
                 </div>

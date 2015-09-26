@@ -18,4 +18,34 @@
 			<span data-ng-bind="file.user.displayName"></span>
 		</em>
 	</small>
+
+	<div class = "container">
+			<div class = "row">
+				<label>Keywords</label>
+				<span>
+					{{file.keywords}}
+				</span>
+			</div>
+			<div class = "row">
+				<label>Primary Citation</label>
+				<span>To be continued</span>
+			</div>
+			<div class = "row">
+				<label>Brief Description</label>
+				<span>{{file.description}}</span>
+			</div>
+			<div class = "row">
+				<span class = "hr"></span>
+			</div>
+		<!-- Line Break right here -->
+
+			<div class = "row">
+				<label>Abstract</label>
+				<span>{{file.abstract}}</span>
+			</div>
+			<div class = "row">
+				<label>Comments</label>
+				<span>{{file.notes}}</span>
+			</div>
+	</div>
 </section>

@@ -13,8 +13,7 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 			var file = new Files ({
 				title: this.title,
 				notes: this.notes,
-				firstName: this.firstName,
-				lastName: this.lastName,
+				author: this.author,
 				abstract: this.abstract,
 				description: this.description,
 				keywords: keywords
@@ -85,6 +84,11 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 			}
 			$scope.toggleState();				
 
+		};
+
+		$scope.getCitation = function(file){
+			var Citation = file.author + ' , ' + file.title  ;
+			return Citation; 
 		};
 	}
 ]);
