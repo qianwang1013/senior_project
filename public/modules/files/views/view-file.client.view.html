@@ -1,6 +1,6 @@
 <section data-ng-controller="FilesController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="file.name"></h1>
+		<h1 data-ng-bind="file.title"></h1>
 	</div>
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == file.user._id))">
 		<a class="btn btn-primary" href="/#!/files/{{file._id}}/edit">
@@ -28,7 +28,7 @@
 			</div>
 			<div class = "row">
 				<label>Primary Citation</label>
-				<span>To be continued</span>
+				<span>{{getCitation(file)}}</span>
 			</div>
 			<div class = "row">
 				<label>Brief Description</label>

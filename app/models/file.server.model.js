@@ -43,6 +43,14 @@ var FileSchema = new Schema({
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
+	},
+	publisher:{
+		type: String, 
+		default: ''
+	},
+	year: {
+		type: String, 
+		default: ''
 	}
 });
 

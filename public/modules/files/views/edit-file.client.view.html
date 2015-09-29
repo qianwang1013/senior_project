@@ -1,4 +1,4 @@
-<section data-ng-controller="FilesController" data-ng-init="findOne()">
+<section data-ng-controller="FilesController" data-ng-init = "findOne()">
     <div class="page-header">
         <h1>Edit File</h1>
     </div>
@@ -6,18 +6,79 @@
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
             <fieldset>
                 <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
+                    <label class="control-label" for="title">Title</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="file.name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="file.title" id="title" class="form-control" placeholder="title" required>
+                    </div>
+                </div>
+                <div class= "row">
+                    <div class="form-group col-xs-3">
+                        <label class="control-label" for="firstName">Author Name</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="file.author" id="author" class="form-control" placeholder="author" required>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-3">
+                        <label class="control-label" for="publisher">Publisher</label>
+                        <input type = "text" data-ng-model="file.publisher" id="publisher" class="form-control" placeholder="publisher">
+                    </div>
+                    <div class="form-group col-xs-3">
+                        <label class="control-label" for="year">Year</label>
+                        <input type="text" data-ng-model="file.year" id="year" class="form-control" placeholder="publish year">
+                    </div>
+                </div>
+                <div class = "form-group">
+                     <label class="control-label" for="keywords">Keywords</label> <br>
+                     <ul class = "list-inline" data-ng-repeat = "data in keywords">
+                         <li class = "btn btn-primary ">{{data}}</li>
+                     </ul>
+
+                     <div>
+                        <span class = "fa fa-plus" data-ng-click = "toggleState()" data-ng-if = "!ifReady"></span>
+                        <div data-ng-if = "ifReady">
+                        <input type = "text" data-ng-model="file.keyword" id="keyword" class="form-control" placeholder="Enter your keyword" required></input>
+                        <button class = "btn btn-default" data-ng-click = "addKeyword()">Add</button>
+                        </div>
+                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="description">Description</label>
+                    <div class="controls">
+                        
+                        <textarea data-ng-model="file.description" name="description"  id="notes" class="form-control" cols="30" rows="3" placeholder="A breif comment of the article should be in 2 or 3 sentences."></textarea>
+                        
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Update" class="btn btn-default">
+                    <label class="control-label" for="abstract">Abstract</label>
+                    <div class="controls">
+                        
+                        <textarea data-ng-model="file.abstract" name="abstract"  id="abstract" class="form-control" cols="30" rows="10" placeholder="Enter your abstract here"></textarea>
+                    
+                    </div>
                 </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
+
+                <div class="form-group">
+                    <label class="control-label" for="notes">Notes and Comments</label>
+                    <div class="controls">
+                        
+                        <textarea data-ng-model="file.notes" name="notes"  id="notes" class="form-control" cols="30" rows="5" placeholder="Notes and Comments"></textarea>
+                        
+                    </div>
+                </div>
+
+                <div class = "form-group">
+                    <input type = "file">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value = "update" class="btn btn-default">
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
             </fieldset>
         </form>
+
     </div>
 </section>

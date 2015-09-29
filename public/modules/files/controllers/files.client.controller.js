@@ -16,7 +16,9 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 				author: this.author,
 				abstract: this.abstract,
 				description: this.description,
-				keywords: keywords
+				keywords: keywords,
+				publisher: this.publisher,
+				year: this.year
 			});
 
 			// Redirect after save
@@ -87,7 +89,8 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 		};
 
 		$scope.getCitation = function(file){
-			var Citation = file.author + ' , ' + file.title  ;
+			var Citation = file.author + ' , ' + file.title + ' , ' + file.publisher + '(' + file.year + ')' ;
+			
 			return Citation; 
 		};
 	}
