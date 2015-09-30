@@ -29,17 +29,19 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		var autoFit = function(data){
 			var keywordStrings = [];
 			data.$promise.then(function(data){
-				console.log(data);
 				angular.forEach(data, function(obj){
-					var keyword = obj.keywords;
-					if(keywordStrings.indexOf(keyword) === -1 && keyword !== ''){
-						keywordStrings.push(keyword);
-					}
+					var keyword = obj.keywords.split(',');	
+					angular.forEach(keyword, function(data){
+						if(keywordStrings.indexOf(data) === -1 && data !== ''){
+
+							keywordStrings.push(data);
+						}	
+					}); 
+
 				}); 
 			});
 
-			$scope.keywordStrings = keywordStrings;
-		
+			$scope.keywordStrings = keywordStrings;	
 		};
 
 		var areYouInArray = function( array, string){
@@ -61,9 +63,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		};
 
 		$scope.searchLocate = function(){
-
+			$location.path('files/filter/' + $scope.queryString);
 		};
-		
+
 	}
 ]);
 
