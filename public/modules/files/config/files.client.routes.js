@@ -6,7 +6,7 @@ angular.module('files').config(['$stateProvider',
 		// Files state routing
 		$stateProvider.
 		state('listFiles', {
-			url: '/files',
+			url: '/files/:fileKeyword',
 			templateUrl: 'modules/files/views/list-files.client.view.html'
 		}).
 		state('createFile', {

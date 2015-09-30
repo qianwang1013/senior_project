@@ -62,7 +62,24 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 
 		// Find a list of Files
 		$scope.find = function() {
-			$scope.files = Files.query();
+			var files = Files.query();
+			// Must make sure the last input is the keywords
+			var url = $location.url().split('/');
+			var keyword = url[url.length - 1];
+			filter(files, keyword);
+		};	
+
+		var filter = function(files, filteKeyword){
+			$scope.files = [];
+			files.$promise.then(function(data){
+				angular.forEach(data, function(obj){
+					console.log(data);
+					var keyword = obj.keywords;
+					if(keyword.indexOf(filteKeyword) > -1){
+						$scope.files.push(data[0]);			
+					}
+				}); 
+			});			
 		};
 
 		// Find existing File

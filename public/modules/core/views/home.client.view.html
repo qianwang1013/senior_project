@@ -3,12 +3,16 @@
 
 	<div id = "search">
 		<div class = "row">
-			<input data-ng-model = "queryString"class = "form-control"type = "text" />
+			<input data-ng-model = "queryString" class = "form-control" type = "text" />
 		</div>
-		<div class = "result" data-ng-show = "queryString && autoString && !isClosed">
-			<a data-ng-repeat = "keyword in autoString" data-ng-click = "finishMyString(keyword)">
-			{{keyword}}
-			</a>
+		<div class = "row">
+			<div class = "result" data-ng-show = "queryString && autoString && !isClosed">
+				<a data-ng-repeat = "keyword in autoString" data-ng-click = "finishMyString(keyword)">
+				{{keyword}}
+				</a>
+			</div>
 		</div>
+
 	</div>
+
 </section>
