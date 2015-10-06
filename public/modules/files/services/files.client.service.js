@@ -10,4 +10,21 @@ angular.module('files').factory('Files', ['$resource',
 			}
 		});
 	}
-]);
+])
+
+.factory('FileType',function(){
+
+    var fileType = '';
+
+    return {
+        getObj: function(){
+        	return fileType;
+        },
+        setObj: function(data){
+        	fileType = data;
+        },
+
+    };
+});
+
+

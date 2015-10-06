@@ -16,6 +16,11 @@ var FileSchema = new Schema({
 		required: 'Please fill File name',
 		trim: true
 	},
+	fileType: {
+		type: String,
+		default: '',
+		required: 'File type needed'
+	},
 	notes: {
 		type: String, 
 		default: ''

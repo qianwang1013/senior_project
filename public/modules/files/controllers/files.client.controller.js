@@ -1,11 +1,10 @@
 'use strict';
 
 // Files controller
-angular.module('files').controller('FilesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Files', '$modal', 
-	function($scope, $stateParams, $location, Authentication, Files, $modal, $modalInstance) {
+angular.module('files').controller('FilesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Files', '$modal', 'FileType', 
+	function($scope, $stateParams, $location, Authentication, Files, $modal, FileType) {
 		$scope.authentication = Authentication;
 		$scope.keywords = [];
-		$scope.fileType = '';
 		// Create new File
 		$scope.create = function() {
 			var keywords = $scope.keywords.toString();
@@ -14,6 +13,7 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 			var file = new Files ({
 				title: this.title,
 				notes: this.notes,
+				fileType: this.fileType,
 				author: this.author,
 				abstract: this.abstract,
 				description: this.description,
@@ -120,7 +120,6 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 			return Citation; 
 		};
 
-	  $scope.items = ['item1', 'item2', 'item3'];
 
 	  $scope.animationsEnabled = true;
 	  $scope.modalInstance = {};
@@ -134,14 +133,15 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 	    });
 
 	  };
-	  $scope.getFileType = function(){
+	  $scope.setFileType = function(){
+	  	var tmp = $scope.fileType;
 	  	if($scope.fileType === ''){
 	  		alert('Please select a type');
 	  	}
 	  	else{
-
 			$location.path('files/create');
-			console.log($scope.fileType);	  		
+			FileType.setObj(tmp);
+
 	  	}	  	
 	  };
 
@@ -149,6 +149,19 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 	    $scope.animationsEnabled = !$scope.animationsEnabled;
 	  };
 
+	  $scope.getFileType = function(){
+	  	$scope.fileType = FileType.getObj();
+	  		if($scope.fileType === ''){
+	  			$location.path('files');
+			    var modalInstance = $modal.open({
+			      animation: $scope.animationsEnabled,
+			      templateUrl: 'modules/files/views/modal.create.view.html',
+			      controller: 'ModalInstanceCtrl',
+			      size: 'lg',
+			    });	  	  			
+	  		}
+		
+	  };
 
 
 	}
