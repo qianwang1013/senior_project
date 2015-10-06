@@ -1,0 +1,30 @@
+<div ng-controller = "FilesController">
+<div ng-controller="FilesController">
+        <div class="modal-header">
+            <h3 class="modal-title">Select your file type</h3>
+        </div>
+        <div class="modal-body">
+    <div class = "btn-group">
+      <input type="radio"  data-ng-model = "fileType" value ="Book" name = "fileType"/>Book<br>
+      <input type="radio"  data-ng-model = "fileType" value ="Journal Paper" name = "fileType"/>Journal Paper<br>
+      <input type="radio" data-ng-model = "fileType"  value = "Conference Paper Format #1" name = "fileType"/>Conference Paper Format #1<br>
+      <input type="radio"  data-ng-model = "fileType" value = "Conference Paper Format #2" name = "fileType"/>Conference Paper Format #2<br>
+      <input type="radio"  data-ng-model = "fileType" value = "Trade Publication" name = "fileType"/>Trade Publication<br>
+      <input type="radio"  data-ng-model = "fileType" value = "Trade Publication with no Author Attribution" name = "fileType"/>Trade Publication with no Author Attribution<br>
+      <input type="radio"  data-ng-model = "fileType" value = "Newspaper Article with Byline" name = "fileType"/>ewspaper Article with Byline<br>
+      <input type="radio"  data-ng-model = "fileType" value = "Newspaper Article without Byline" name = "fileType"/>Newspaper Article without Byline<br>
+      <input type="radio"  data-ng-model = "fileType" value = "Doctoral Dissertation" name = "fileType"/>Doctoral Dissertation<br>
+      <input type="radio"  data-ng-model = "fileType" value = "M.S. Thesis" name = "fileType"/>M.S. Thesis<br>
+      <input type="radio"  data-ng-model = "fileType" value = "Technical Manual with Byline" name = "fileType"/>Technical Manual with Byline<br>
+      <input type="radio"  data-ng-model = "fileType" value = "Technical Manual without Byline" name = "fileType"/>Technical Manual without Byline<br>
+      <input type="radio"  data-ng-model = "fileType" value = "Web Reference with Known Author" name = "fileType"/>Web Reference with Known Author<br>
+      <input type="radio"  data-ng-model = "fileType" value = "Unpublished Manuscript" name = "fileType"/>Unpublished Manuscript<br>
+      <input type="radio"  data-ng-model = "fileType" value = "Personal Correspondence or Conversation" name = "fileType"/>Personal Correspondence or Conversation<br>
+    </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="getFileType().then(close())">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+</div>
+</div>

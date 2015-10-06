@@ -1,10 +1,11 @@
 'use strict';
 
 // Files controller
-angular.module('files').controller('FilesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Files',
-	function($scope, $stateParams, $location, Authentication, Files) {
+angular.module('files').controller('FilesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Files', '$modal', 
+	function($scope, $stateParams, $location, Authentication, Files, $modal, $modalInstance) {
 		$scope.authentication = Authentication;
 		$scope.keywords = [];
+		$scope.fileType = '';
 		// Create new File
 		$scope.create = function() {
 			var keywords = $scope.keywords.toString();
@@ -118,5 +119,50 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 			
 			return Citation; 
 		};
+
+	  $scope.items = ['item1', 'item2', 'item3'];
+
+	  $scope.animationsEnabled = true;
+	  $scope.modalInstance = {};
+	  $scope.open = function (size) {
+
+	    $scope.modalInstance = $modal.open({
+	      animation: $scope.animationsEnabled,
+	      templateUrl: 'modules/files/views/modal.create.view.html',
+	      controller: 'ModalInstanceCtrl',
+	      size: size,
+	    });
+
+	  };
+	  $scope.getFileType = function(){
+	  	if($scope.fileType === ''){
+	  		alert('Please select a type');
+	  	}
+	  	else{
+
+			$location.path('files/create');
+			console.log($scope.fileType);	  		
+	  	}	  	
+	  };
+
+	  $scope.toggleAnimation = function () {
+	    $scope.animationsEnabled = !$scope.animationsEnabled;
+	  };
+
+
+
 	}
-]);
+])
+
+
+.controller('ModalInstanceCtrl',function ($scope, $modalInstance, $location) {
+
+
+	  $scope.close = function(){
+	  	$modalInstance.close();
+	  };
+
+	  $scope.cancel = function () {
+	    $modalInstance.dismiss('cancel');
+	  };
+});

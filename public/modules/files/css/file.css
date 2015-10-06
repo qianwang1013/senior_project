@@ -64,3 +64,13 @@
     border-top: 1px solid #eee;
     border-bottom: 1px solid #ffffff;
 }
+
+.btn-group{
+	font-size: 20px;
+	font-family: Adine Kirnberg;
+	padding-bottom: 10px;
+}
+
+.btn-group p{
+	padding-right: 5px;
+}
