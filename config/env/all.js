@@ -15,7 +15,8 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-				'public/lib/font-awesome/css/font-awesome.css'
+				'public/lib/font-awesome/css/font-awesome.css',
+				'public/lib/hover/css/hover.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
