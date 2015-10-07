@@ -7,17 +7,21 @@
             <fieldset>
                 <div data-ng-if = "fileType === 'Book'">
                    <div class= "row">
-                    <div class="form-group col-xs-3">
-                        <label class="control-label" for="title">Title</label>
-                        <div class="controls">
-                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
-                        </div>
-                    </div>
-                        <div class="form-group col-xs-3">
+                       <div class="form-group col-xs-3">
                             <label class="control-label" for="firstName">Author Name</label>
                             <div class="controls">
                                 <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
                             </div>
+                        </div>
+                        <div class="form-group col-xs-3">
+                            <label class="control-label" for="title">Title</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-3">
+                            <label class="control-label" for="publisherPlace">Publisher Place</label>
+                            <input type = "text" data-ng-model="publisherPlace" id="publisherPlace" class="form-control" placeholder="publisher place">
                         </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="publisher">Publisher</label>
@@ -32,21 +36,22 @@
 
                 <div data-ng-if = "fileType === 'Journal Paper'">
                    <div class= "row">
+                         <div class="form-group col-xs-3">
+                            <label class="control-label" for="firstName">Author Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
+                            </div>
+                        </div>
                     <div class="form-group col-xs-3">
                         <label class="control-label" for="title">Title</label>
                         <div class="controls">
                             <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
                         </div>
                     </div>
+
                         <div class="form-group col-xs-3">
-                            <label class="control-label" for="firstName">Author Name</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
-                            </div>
-                        </div>
-                        <div class="form-group col-xs-3">
-                            <label class="control-label" for="publisher">Publisher</label>
-                            <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
+                            <label class="control-label" for="publisher">Journal</label>
+                            <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="Journal name and pages">
                         </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="year">Year</label>
@@ -64,7 +69,7 @@
                             <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
                         </div>
                     </div>
-                        <div class="form-group col-xs-3">
+                       <div class="form-group col-xs-3">
                             <label class="control-label" for="firstName">Author Name</label>
                             <div class="controls">
                                 <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
@@ -83,24 +88,25 @@
 
                 <div data-ng-if = "fileType === 'Conference Paper Format #2'">
                    <div class= "row">
+                       <div class="form-group col-xs-3">
+                            <label class="control-label" for="firstName">Author Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
+                            </div>
+                        </div>                    
                     <div class="form-group col-xs-3">
                         <label class="control-label" for="title">Title</label>
                         <div class="controls">
                             <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
                         </div>
                     </div>
+ 
                         <div class="form-group col-xs-3">
-                            <label class="control-label" for="firstName">Author Name</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
-                            </div>
-                        </div>
-                        <div class="form-group col-xs-3">
-                            <label class="control-label" for="publisher">Publisher</label>
+                            <label class="control-label" for="publisher">Conference</label>
                             <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
                         </div>
                         <div class="form-group col-xs-3">
-                            <label class="control-label" for="year">Year</label>
+                            <label class="control-label" for="year">Conference Year</label>
                             <input type="text" data-ng-model="year" id="year" class="form-control" placeholder="publish year">
                         </div>
                     </div>
@@ -108,18 +114,18 @@
 
                 <div data-ng-if = "fileType === 'Trade Publication'">
                    <div class= "row">
-                    <div class="form-group col-xs-3">
-                        <label class="control-label" for="title">Title</label>
-                        <div class="controls">
-                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
-                        </div>
-                    </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="firstName">Author Name</label>
                             <div class="controls">
                                 <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
                             </div>
                         </div>
+                    <div class="form-group col-xs-3">
+                        <label class="control-label" for="title">Title</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
+                        </div>
+                    </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="publisher">Publisher</label>
                             <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
@@ -133,18 +139,18 @@
 
                 <div data-ng-if = "fileType === 'Trade Publication with no Author Attribution'">
                    <div class= "row">
+                        <div class="form-group col-xs-3">
+                            <label class="control-label" for="firstName">Author Name</label>
+                            <div class="controls">
+                                <span data-ng-model="author" id="author" data-ng-init = "author = 'Anon'" class="form-control">Anon</span>
+                            </div>
+                        </div>
                     <div class="form-group col-xs-3">
                         <label class="control-label" for="title">Title</label>
                         <div class="controls">
                             <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
                         </div>
                     </div>
-                        <div class="form-group col-xs-3">
-                            <label class="control-label" for="firstName">Author Name</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
-                            </div>
-                        </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="publisher">Publisher</label>
                             <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
@@ -156,20 +162,20 @@
                     </div>
                 </div>
 
-                <div data-ng-if = "fileType === 'Newspaper Article with Byline#1'">
+                <div data-ng-if = "fileType === 'Newspaper Article with Byline'">
                    <div class= "row">
-                    <div class="form-group col-xs-3">
-                        <label class="control-label" for="title">Title</label>
-                        <div class="controls">
-                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
-                        </div>
-                    </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="firstName">Author Name</label>
                             <div class="controls">
                                 <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
                             </div>
                         </div>
+                    <div class="form-group col-xs-3">
+                        <label class="control-label" for="title">Title</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
+                        </div>
+                    </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="publisher">Publisher</label>
                             <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
@@ -183,18 +189,18 @@
 
                 <div data-ng-if = "fileType === 'Newspaper Article without Byline'">
                    <div class= "row">
-                    <div class="form-group col-xs-3">
+                        <div class="form-group col-xs-3">
+                            <label class="control-label" for="firstName">Author Name</label>
+                            <div class="controls">
+                                <span data-ng-model="author" id="author" data-ng-init = "author = 'Anon'" class="form-control">Anon</span>
+                            </div>
+                        </div>
+                   <div class="form-group col-xs-3">
                         <label class="control-label" for="title">Title</label>
                         <div class="controls">
                             <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
                         </div>
                     </div>
-                        <div class="form-group col-xs-3">
-                            <label class="control-label" for="firstName">Author Name</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
-                            </div>
-                        </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="publisher">Publisher</label>
                             <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
@@ -233,18 +239,18 @@
 
                 <div data-ng-if = "fileType === 'M.S. Thesis'">
                    <div class= "row">
-                    <div class="form-group col-xs-3">
-                        <label class="control-label" for="title">Title</label>
-                        <div class="controls">
-                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
-                        </div>
-                    </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="firstName">Author Name</label>
                             <div class="controls">
                                 <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
                             </div>
                         </div>
+                    <div class="form-group col-xs-3">
+                        <label class="control-label" for="title">Title</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
+                        </div>
+                    </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="publisher">Publisher</label>
                             <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
@@ -258,18 +264,19 @@
 
                 <div data-ng-if = "fileType === 'Technical Manual with Byline'">
                    <div class= "row">
-                    <div class="form-group col-xs-3">
-                        <label class="control-label" for="title">Title</label>
-                        <div class="controls">
-                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
-                        </div>
-                    </div>
+
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="firstName">Author Name</label>
                             <div class="controls">
                                 <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
                             </div>
                         </div>
+                    <div class="form-group col-xs-3">
+                        <label class="control-label" for="title">Title</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
+                        </div>
+                    </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="publisher">Publisher</label>
                             <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
@@ -282,19 +289,21 @@
                 </div>
 
                 <div data-ng-if = "fileType === 'Technical Manual without Byline'">
+
                    <div class= "row">
+
+                        <div class="form-group col-xs-3">
+                            <label class="control-label" for="firstName">Author Name</label>
+                            <div class="controls">
+                                <span data-ng-model="author" id="author" data-ng-init = "author = 'Anon'" class="form-control">Anon</span>
+                            </div>
+                        </div>
                     <div class="form-group col-xs-3">
                         <label class="control-label" for="title">Title</label>
                         <div class="controls">
                             <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
                         </div>
                     </div>
-                        <div class="form-group col-xs-3">
-                            <label class="control-label" for="firstName">Author Name</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
-                            </div>
-                        </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="publisher">Publisher</label>
                             <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
@@ -307,19 +316,20 @@
                 </div>
 
                 <div data-ng-if = "fileType === 'Web Reference with Known Author'">
-                   <div class= "row">
-                    <div class="form-group col-xs-3">
-                        <label class="control-label" for="title">Title</label>
-                        <div class="controls">
-                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
-                        </div>
-                    </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="firstName">Author Name</label>
                             <div class="controls">
                                 <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
                             </div>
                         </div>
+                  <div class= "row">
+                    <div class="form-group col-xs-3">
+                        <label class="control-label" for="title">Title</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
+                        </div>
+                    </div>
+
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="publisher">Publisher</label>
                             <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
@@ -333,18 +343,18 @@
 
                 <div data-ng-if = "fileType === 'Web Reference with Unknown Author'">
                    <div class= "row">
+                        <div class="form-group col-xs-3">
+                            <label class="control-label" for="firstName">Author Name</label>
+                            <div class="controls">
+                                <span data-ng-model="author" id="author" data-ng-init = "author = 'Anon'" class="form-control">Anon</span>
+                            </div>
+                        </div>
                     <div class="form-group col-xs-3">
                         <label class="control-label" for="title">Title</label>
                         <div class="controls">
                             <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
                         </div>
                     </div>
-                        <div class="form-group col-xs-3">
-                            <label class="control-label" for="firstName">Author Name</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
-                            </div>
-                        </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="publisher">Publisher</label>
                             <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
@@ -358,18 +368,18 @@
 
                 <div data-ng-if = "fileType === 'Unpublished Manuscript'">
                    <div class= "row">
-                    <div class="form-group col-xs-3">
-                        <label class="control-label" for="title">Title</label>
-                        <div class="controls">
-                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
-                        </div>
-                    </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="firstName">Author Name</label>
                             <div class="controls">
                                 <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
                             </div>
                         </div>
+                   <div class="form-group col-xs-3">
+                        <label class="control-label" for="title">Title</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
+                        </div>
+                    </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="publisher">Publisher</label>
                             <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
@@ -383,18 +393,19 @@
 
                 <div data-ng-if = "fileType === 'Personal Correspondence or Conversation'">
                    <div class= "row">
-                    <div class="form-group col-xs-3">
-                        <label class="control-label" for="title">Title</label>
-                        <div class="controls">
-                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
-                        </div>
-                    </div>
+
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="firstName">Author Name</label>
                             <div class="controls">
                                 <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
                             </div>
                         </div>
+                    <div class="form-group col-xs-3">
+                        <label class="control-label" for="title">Title</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
+                        </div>
+                    </div>
                         <div class="form-group col-xs-3">
                             <label class="control-label" for="publisher">Publisher</label>
                             <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
