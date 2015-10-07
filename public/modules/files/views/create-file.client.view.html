@@ -1,13 +1,11 @@
 <section data-ng-controller="FilesController" data-ng-init = "getFileType()">
     <div class="page-header">
-        <h1>New File</h1>
+        <h1>New File <span data-ng-show = "fileType !== ''">| {{fileType}}</span></h1>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
-            {{fileType}}
                 <div data-ng-if = "fileType === 'Book'">
-                    Type: {{fileType}}
                    <div class= "row">
                     <div class="form-group col-xs-3">
                         <label class="control-label" for="title">Title</label>
@@ -31,15 +29,34 @@
                         </div>
                     </div>
                 </div>
-                </fieldset>
-                </form>
-            </div>
-            <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="create()" novalidate>
-            <fieldset>
-            {{fileType}}
+
                 <div data-ng-if = "fileType === 'Journal Paper'">
-                    Type: {{fileType}}
+                   <div class= "row">
+                    <div class="form-group col-xs-3">
+                        <label class="control-label" for="title">Title</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="title" required>
+                        </div>
+                    </div>
+                        <div class="form-group col-xs-3">
+                            <label class="control-label" for="firstName">Author Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="author" id="author" class="form-control" placeholder="author" required>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-3">
+                            <label class="control-label" for="publisher">Publisher</label>
+                            <input type = "text" data-ng-model="publisher" id="publisher" class="form-control" placeholder="publisher">
+                        </div>
+                        <div class="form-group col-xs-3">
+                            <label class="control-label" for="year">Year</label>
+                            <input type="text" data-ng-model="year" id="year" class="form-control" placeholder="publish year">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div data-ng-if = "fileType === 'Conference Paper Format #1'">
                    <div class= "row">
                     <div class="form-group col-xs-3">
                         <label class="control-label" for="title">Title</label>
@@ -66,12 +83,7 @@
                 </fieldset>
                 </form>
             </div>
-            
-
-
-              
-
-                <div class = "form-group">
+              <div class = "form-group">
                      <label class="control-label" for="keywords">Keywords</label> <br>
                      <ul class = "list-inline" data-ng-repeat = "data in keywords">
                          <li class = "btn btn-primary ">{{data}}</li>
