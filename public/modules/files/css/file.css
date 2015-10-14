@@ -74,3 +74,8 @@
 .btn-group p{
 	padding-right: 5px;
 }
+
+.clearfix{
+
+	display: inline-block;
+   }
