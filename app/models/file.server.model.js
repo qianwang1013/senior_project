@@ -49,6 +49,10 @@ var FileSchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'User'
 	},
+	publisherLocation: {
+		type: String, 
+		default: ''
+	},
 	publisher:{
 		type: String, 
 		default: ''
@@ -56,6 +60,9 @@ var FileSchema = new Schema({
 	year: {
 		type: String, 
 		default: ''
+	},
+	ifEdit:{
+		type: Date
 	}
 });
 

@@ -1,6 +1,6 @@
 <section data-ng-controller="FilesController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="file.title"></h1>
+		<h1>{{file.title}}<span data-ng-show = "newlyEdit(file.ifEdit)"><img src = "modules/files/img/update.png" height = "40" width = "80"></img></span></h1>
 	</div>
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == file.user._id))">
 		<a class="btn btn-primary" href="/#!/files/{{file._id}}/edit">

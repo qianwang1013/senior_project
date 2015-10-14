@@ -15,7 +15,7 @@
                 <div class = "row">
                     <div id = "notes" class = "col-xs-7">
                         <div class = "title">
-                        {{file.title}}
+                        {{file.title}} <span data-ng-show = "newlyEdit(file.ifEdit)"><img src = "modules/files/img/update.png" height = "40" width = "80"></img></span>
                         </div>
                         <div class = "body">
                         {{file.description}} 

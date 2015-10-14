@@ -43,6 +43,8 @@ exports.update = function(req, res) {
 
 	file.save(function(err) {
 		if (err) {
+			console.log('EEEEEERRRR'); 
+			console.log(err);
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
@@ -92,6 +94,7 @@ exports.fileByID = function(req, res, next, id) {
 		if (err) return next(err);
 		if (! file) return next(new Error('Failed to load File ' + id));
 		req.file = file ;
+		console.log(file);
 		next();
 	});
 };

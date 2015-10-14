@@ -14,14 +14,15 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 				title: this.title,
 				notes: this.notes,
 				fileType: this.fileType,
-				author: this.author,
+				author: $scope.author,
 				abstract: this.abstract,
 				description: this.description,
 				keywords: keywords,
-				publisher: this.publisher,
-				year: this.year
+				publisher: $scope.publisher,
+				publisherLocation: $scope.publisherLocation,
+				year: $scope.year
 			});
-
+			console.log(file);
 			// Redirect after save
 			file.$save(function(response) {
 				$location.path('files/' + response._id);
@@ -52,6 +53,8 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 
 		// Update existing File
 		$scope.update = function() {
+			$scope.file.ifEdit = new Date();
+			console.log($scope.file.ifEdit);
 			var file = $scope.file;
 
 			file.$update(function() {
@@ -98,7 +101,13 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 			});
 		};
 
-
+		$scope.newlyEdit = function(editTime){
+			console.log(Date.now());
+			console.log(Date.parse(editTime));
+			var result = ((Date.now() - Date.parse(editTime)) < 60000) && ((Date.now() - Date.parse(editTime)) >= 0);
+			console.log(result);
+			return result;
+		};
 
 		$scope.ifReady = false;
 		$scope.toggleState = function(){
