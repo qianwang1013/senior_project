@@ -2,14 +2,14 @@
 
 // Files controller
 angular.module('files').controller('FilesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Files', '$modal', 'FileType', 
-	function($scope, $stateParams, $location, Authentication, Files, $modal, FileType) {
+	function($scope, $stateParams, $location, Authentication, Files, $modal, FileType ) {
 		$scope.authentication = Authentication;
 		$scope.keywords = [];
 		// Create new File
 		$scope.create = function() {
 			var keywords = $scope.keywords.toString();
-			console.log(keywords);
 			// Create new File object
+			console.log($scope.pdf);
 			var file = new Files ({
 				title: this.title,
 				notes: this.notes,
@@ -22,7 +22,6 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 				publisherLocation: $scope.publisherLocation,
 				year: $scope.year
 			});
-			console.log(file);
 			// Redirect after save
 			file.$save(function(response) {
 				$location.path('files/' + response._id);
@@ -54,7 +53,6 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 		// Update existing File
 		$scope.update = function() {
 			$scope.file.ifEdit = new Date();
-			console.log($scope.file.ifEdit);
 			var file = $scope.file;
 
 			file.$update(function() {
@@ -70,7 +68,6 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 
 			// Must make sure the last input is the keywords
 			var keyword = $location.url().split('/')[($location.url().split('/')).length - 1];
-			console.log(keyword);
 			if(keyword === 'files'){
 				$scope.files = files;
 
@@ -102,10 +99,8 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 		};
 
 		$scope.newlyEdit = function(editTime){
-			console.log(Date.now());
-			console.log(Date.parse(editTime));
+
 			var result = ((Date.now() - Date.parse(editTime)) < 60000) && ((Date.now() - Date.parse(editTime)) >= 0);
-			console.log(result);
 			return result;
 		};
 

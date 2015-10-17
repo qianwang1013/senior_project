@@ -459,7 +459,10 @@
                 </div>
 
                 <div class = "form-group">
-                    <input type = "file">
+                    <input type = "file" data-ng-model = "pdfFile" pdf>
+                </div>
+                <div data-ng-if = "pdf">
+                     <object data="{{tmpPath}}" type = "application/pdf"width = 100% height = 500px> </object>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-default">

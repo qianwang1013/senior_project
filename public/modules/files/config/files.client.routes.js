@@ -1,8 +1,10 @@
 'use strict';
 
 //Setting up route
-angular.module('files').config(['$stateProvider',
-	function($stateProvider) {
+angular.module('files').config(['$stateProvider', '$compileProvider',
+	function($stateProvider, $compileProvider) {
+		$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blob):/);
+
 		// Files state routing
 		$stateProvider.
 		state('listFiles', {
