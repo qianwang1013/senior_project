@@ -170,7 +170,16 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 
 	}
 ])
-
+.controller('ImageCropperCtrl',[ '$scope', function($scope){
+        $scope.cropper = {};
+        $scope.cropper.sourceImage = null;
+        $scope.cropper.croppedImage   = null;
+        $scope.bounds = {};
+        $scope.bounds.left = 0;
+        $scope.bounds.right = 400;
+        $scope.bounds.top = 400;
+        $scope.bounds.bottom = 0;
+}])
 
 .controller('ModalInstanceCtrl',function ($scope, $modalInstance, $location) {
 

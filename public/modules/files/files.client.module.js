@@ -1,4 +1,4 @@
 'use strict';
 
 // Use applicaion configuration module to register a new module
-ApplicationConfiguration.registerModule('files');
+ApplicationConfiguration.registerModule('files',['angular-img-cropper']);
