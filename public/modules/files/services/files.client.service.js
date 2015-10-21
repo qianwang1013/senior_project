@@ -30,7 +30,6 @@ angular.module('files').factory('Files', ['$resource',
 .directive('pdf', ['$sce',
      function($sce){
         function link(scope, element, attrs){
-            console.log(element);
             element.bind('change', function(){
                 if(this.value === ''){
                     alert('Empty Files');
@@ -64,21 +63,24 @@ angular.module('files').factory('Files', ['$resource',
             link    : link
         };   
     }
-]);
+])
 
-/*.directive('embedSrc', function () {
-  return {
-    restrict: 'A',
-    link: function (scope, element, attrs) {
-      var current = element;
-      scope.$watch(attrs.embedSrc, function () {
-        var clone = element
-                      .clone()
-                      .attr('data', attrs.embedSrc);
-        current.replaceWith(clone); 
-        console.log(attrs.embedSrc);
-        current = clone;
-      });
+.directive('myCanvas',[ '$document', '$window',
+  function($document, $window){
+    function link(scope, element, attr){
+      var canvas = element[0];
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'green';
+      ctx.fillRect(0, 0, attr.height, attr.width);
+      
+      console.log();
     }
-  };
-});*/
+    return{
+      restrict: 'A',
+      scope: {
+        file: '@'
+      }, 
+      link    : link
+    };
+}]);
+
