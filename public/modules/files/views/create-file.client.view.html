@@ -462,20 +462,14 @@
                 <div class = "form-group">
                     <input type = "file" data-ng-model = "pdfFile" pdf>
                 </div>
-                <div data-ng-if = "pdf">
-                    <object data="{{tmpPath}}" type = "application/pdf"width = 100% height = 500px> </object>
+                <div data-ng-if = "pdf.flag === 1">
+                    <object data="{{pdf.tmpPath}}" type = "application/pdf" width = 100% height = 500px> </object>
                 </div> 
-                <div class = "form-group">
-                    <div ng-controller="ImageCropperCtrl">
-                        <input type="file" img-cropper-fileread image="cropper.sourceImage" />
-                        <div data-ng-if = "cropper.sourceImage">
-                             <canvas width="400" height="400" id="canvas" image-cropper image="cropper.sourceImage" cropped-image="cropper.croppedImage" crop-width="400" crop-height="400" keep-aspect="true" touch-radius="30" crop-area-bounds="bounds"></canvas>
-                        <div>Cropped Image (Left: {{bounds.left}} Right: {{bounds.right}} Top: {{bounds.top}} Bottom: {{bounds.bottom}})</div>
-                        <div ng-show="cropper.croppedImage!=null"><img ng-src="{{cropper.croppedImage}}" /></div>
-                        </div>
 
-                    </div>
+                <div data-ng-if = "img.flag === 1">
+                    <img src = "{{img.tmpPath}}" width = 100% height = 500px />
                 </div>
+
                 <div class="form-group">
                     <input type="submit" class="btn btn-default">
                 </div>

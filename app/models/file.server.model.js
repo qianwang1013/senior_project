@@ -63,6 +63,9 @@ var FileSchema = new Schema({
 	},
 	ifEdit:{
 		type: Date
+	},
+	fileBlob:{
+		type: Buffer
 	}
 });
 

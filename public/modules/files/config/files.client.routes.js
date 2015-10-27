@@ -4,7 +4,8 @@
 angular.module('files').config(['$stateProvider', '$compileProvider',
 	function($stateProvider, $compileProvider) {
 		$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blob):/);
-
+		var oldWhiteList = $compileProvider.imgSrcSanitizationWhitelist();
+  		$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob):|data:image\//);
 		// Files state routing
 		$stateProvider.
 		state('listFiles', {

@@ -5,11 +5,23 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 	function($scope, $stateParams, $location, Authentication, Files, $modal, FileType ) {
 		$scope.authentication = Authentication;
 		$scope.keywords = [];
+		$scope.pdf = {};
+		$scope.img = {};
 		// Create new File
 		$scope.create = function() {
 			var keywords = $scope.keywords.toString();
+			var fileBlob;
+			if($scope.pdf.flag === 1 && $scope.img.flag === 0){
+				fileBlob = $scope.pdf.file;
+			}
+			else if($scope.img.flag === 1 && $scope.pdf.flag === 0){
+				fileBlob = $scope.img.file;
+			}
+			else{
+				alert('SHoot');
+			}
+			console.log(fileBlob);
 			// Create new File object
-			console.log($scope.pdf);
 			var file = new Files ({
 				title: this.title,
 				notes: this.notes,
@@ -20,8 +32,11 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 				keywords: keywords,
 				publisher: $scope.publisher,
 				publisherLocation: $scope.publisherLocation,
-				year: $scope.year
+				year: $scope.year,
+				fileBlob: fileBlob
 			});
+			console.log(file);
+
 			// Redirect after save
 			file.$save(function(response) {
 				$location.path('files/' + response._id);
@@ -170,16 +185,7 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 
 	}
 ])
-.controller('ImageCropperCtrl',[ '$scope', function($scope){
-        $scope.cropper = {};
-        $scope.cropper.sourceImage = null;
-        $scope.cropper.croppedImage   = null;
-        $scope.bounds = {};
-        $scope.bounds.left = 0;
-        $scope.bounds.right = 400;
-        $scope.bounds.top = 400;
-        $scope.bounds.bottom = 0;
-}])
+
 
 .controller('ModalInstanceCtrl',function ($scope, $modalInstance, $location) {
 

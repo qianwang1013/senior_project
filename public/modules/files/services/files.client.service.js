@@ -39,19 +39,41 @@ angular.module('files').factory('Files', ['$resource',
                     var ext = this.value.substring(this.value.lastIndexOf('.'), this.value.length);                
                     switch(ext){
                        case '.pdf':
+                       // set isPdf flag
+                         scope.$parent.pdf.flag = 1;
+                         scope.$parent.img.flag = 0;
+                         break;
+                       case '.jpg':
+                       // set isImg flag
+                         scope.$parent.img.flag = 1;
+                         scope.$parent.pdf.flag = 0;
                          break;
                        default:
-                         alert('Invalid file extension. Accepted is pdf');
+                         alert('Invalid file extension, pdf and jpg file needed');
+                      // clear IMG PDF
+                         scope.$parent.pdf.flag = 0;
+                         scope.$parent.img.flag = 0;
                          this.value='';
                     }
                 }
+                var files = event.target.files;
+                var file = files[0];
+                if(scope.$parent.pdf.flag === 1){
+                  scope.$parent.pdf.file = file;
+                  scope.$parent.pdf.blob = new Blob([scope.$parent.pdf.file], {type: 'application/pdf'});
+                  scope.$parent.pdf.tmpPath = $sce.trustAsResourceUrl((window.URL || window.webkitURL).createObjectURL( scope.$parent.pdf.blob ));
+                }
+                else if(scope.$parent.img.flag === 1){
+                  scope.$parent.img.file = file;
+                  scope.$parent.img.blob = new Blob([scope.$parent.img.file], {type: 'image/jpeg'});
+                  scope.$parent.img.tmpPath = (window.URL || window.webkitURL).createObjectURL( scope.$parent.img.blob );
+                  
+                }
+                else{
+                  console.log('Something wrong');
+                }
 
-                var pdfs = event.target.files;
-                var pdf = pdfs[0];
-                scope.pdf = pdf;
-                var blob = new Blob([pdf], {type: 'application/pdf'});
-                scope.$parent.tmpPath = $sce.trustAsResourceUrl((window.URL || window.webkitURL).createObjectURL( blob ));
-                scope.$parent.pdf = pdf;
+                // Compile
                 scope.$apply();
             });
         }
