@@ -4,6 +4,10 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+	mongodb = require('mongodb'),
+	Grid = require('gridfs-stream'),
+    GridFS = new Grid(mongoose.connection.db, mongoose.mongo),
+	fs = require('fs'),
 	errorHandler = require('./errors.server.controller'),
 	File = mongoose.model('File'),
 	_ = require('lodash');

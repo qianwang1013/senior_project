@@ -49,8 +49,9 @@ angular.module('files').factory('Files', ['$resource',
                          scope.$parent.pdf.flag = 0;
                          break;
                        default:
-                         alert('Invalid file extension, pdf and jpg file needed');
-                      // clear IMG PDF
+                          /* jshint ignore: start */
+                          toastr.error('Invalid file extension detected. Please enter Jpeg and Pdf file');
+                          /* jshint ignore: end*/                    
                          scope.$parent.pdf.flag = 0;
                          scope.$parent.img.flag = 0;
                          this.value='';
@@ -70,7 +71,11 @@ angular.module('files').factory('Files', ['$resource',
                   
                 }
                 else{
-                  console.log('Something wrong');
+                  /* jshint ignore: start */
+                  toastr.error('Something wrong');
+                  /* jshint ignore: end*/
+                  scope.$parent.pdf = {};
+                  scope.$parent.img = {};
                 }
 
                 // Compile
