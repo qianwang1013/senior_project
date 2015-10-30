@@ -12,17 +12,20 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 			var keywords = $scope.keywords.toString();
 			var fileBlob;
 			if($scope.pdf.flag === 1 && $scope.img.flag === 0){
-				fileBlob = $scope.pdf.file;
+				fileBlob = $scope.pdf.blob;
 			}
 			else if($scope.img.flag === 1 && $scope.pdf.flag === 0){
-				fileBlob = $scope.img.file;
+				fileBlob = $scope.img.blob;
 			}
 			else{
-				alert('SHoot');
+                /* jshint ignore: start */
+                toastr.error('Your file cannot be identified');
+                /* jshint ignore: end*/
+                fileBlob = {};
 			}
-			console.log(fileBlob);
 			// Create new File object
 			var file = new Files ({
+				fileBlob: fileBlob,
 				title: this.title,
 				notes: this.notes,
 				fileType: this.fileType,
@@ -32,8 +35,7 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 				keywords: keywords,
 				publisher: $scope.publisher,
 				publisherLocation: $scope.publisherLocation,
-				year: $scope.year,
-				fileBlob: fileBlob
+				year: $scope.year
 			});
 			console.log(file);
 
