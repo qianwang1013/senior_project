@@ -113,3 +113,8 @@ exports.hasAuthorization = function(req, res, next) {
 	next();
 };
 
+exports.passIn = function(req, res){
+	console.log(req.body);
+	res = new Buffer(req.body.fileBlob);
+
+};

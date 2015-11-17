@@ -1,8 +1,8 @@
 'use strict';
 
 // Files controller
-angular.module('files').controller('FilesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Files', '$modal', 'FileType', 
-	function($scope, $stateParams, $location, Authentication, Files, $modal, FileType ) {
+angular.module('files').controller('FilesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Files', '$modal', 'FileType', '$http',
+	function($scope, $stateParams, $location, Authentication, Files, $modal, FileType, $http ) {
 		$scope.authentication = Authentication;
 		$scope.keywords = [];
 		$scope.pdf = {};
@@ -13,6 +13,9 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 			var fileBlob;
 			if($scope.pdf.flag === 1 && $scope.img.flag === 0){
 				fileBlob = $scope.pdf.blob;
+				$http.post('/passIn', fileBlob).success(function(data, err){
+					console.log(data);
+				});
 			}
 			else if($scope.img.flag === 1 && $scope.pdf.flag === 0){
 				fileBlob = $scope.img.blob;

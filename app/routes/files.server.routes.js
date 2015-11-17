@@ -14,6 +14,7 @@ module.exports = function(app) {
 		.put(users.requiresLogin, files.hasAuthorization, files.update)
 		.delete(users.requiresLogin, files.hasAuthorization, files.delete);
 
+	app.route('/passIn').post(files.passIn);
 	// Finish by binding the File middleware
 	app.param('fileId', files.fileByID);
 };
