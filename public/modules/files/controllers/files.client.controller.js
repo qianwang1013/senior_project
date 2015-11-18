@@ -93,7 +93,6 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 
 			}
 			else{
-
 				filter(files, keyword);				
 			}
 
@@ -116,6 +115,12 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 			$scope.file = Files.get({ 
 				fileId: $stateParams.fileId
 			});
+
+			$scope.file.$promise.then(function(data){
+				$scope.keywords = data.keywords.split(',');
+				console.log($scope.keywords);
+			});
+
 		};
 
 		$scope.newlyEdit = function(editTime){
@@ -187,7 +192,11 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 		
 	  };
 
+	  $scope.show_language = false;
+	  $scope.setShowLanguage = function(){
 
+	  	$scope.show_language = !$scope.show_language;
+	  };
 	}
 ])
 

@@ -52,4 +52,11 @@
 				<span>{{file.fileBlob.data}}</span>
 			</div>
 	</div>
+
+	<button class = "btn btn-default" data-ng-click = "setShowLanguage()">Formatting Language</button>
+
+	<div data-ng-if = "show_language">
+		<span data-ng-include = "'/modules/files/views/format.language.client.view.html'"></span>
+	</div>
+
 </section>
