@@ -197,6 +197,29 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 
 	  	$scope.show_language = !$scope.show_language;
 	  };
+	  $scope.showRTF = 0;
+	  $scope.createRTF = function(){
+	  	$http.post('/files/createRTF', $scope.file).success(function(response){
+            /* jshint ignore: start */
+           	toastr.success('RTF file made');
+            /* jshint ignore: end*/
+	  		$scope.showRTF = 1;
+
+	  	});
+	  };
+
+	  $scope.showASCII = 0;
+	  $scope.createASCII = function(){
+	  	$http.post('/files/createASCII', $scope.file).success(function(response){
+            /* jshint ignore: start */
+           	toastr.success('ASCII file made');
+            /* jshint ignore: end*/			
+		
+	  		$scope.showASCII = 1;
+
+	  	});
+	  };
+
 	}
 ])
 

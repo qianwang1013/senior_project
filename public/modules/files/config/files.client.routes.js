@@ -27,6 +27,14 @@ angular.module('files').config(['$stateProvider', '$compileProvider',
 		state('filterFiles', {
 			url: '/files/filter/:fileKeyword',
 			templateUrl: 'modules/files/views/list-files.client.view.html'
+		}).
+		state('RTF', {
+			url: '/download/file.rtf',
+			templateUrl: 'modules/files/download/file.rtf'
+		}).
+		state('TXT', {
+			url: '/download/file.txt',
+			templateUrl: 'modules/files/download/file.txt'
 		});
 	}
 ]);

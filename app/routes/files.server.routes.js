@@ -8,11 +8,18 @@ module.exports = function(app) {
 	app.route('/files')
 		.get(files.list)
 		.post(users.requiresLogin, files.create);
+		
+	app.route('/files/createRTF')
+		.post(files.createRTF);
+
+	app.route('/files/createASCII')
+		.post(files.createASCII);
 
 	app.route('/files/:fileId')
 		.get(files.read)
 		.put(users.requiresLogin, files.hasAuthorization, files.update)
 		.delete(users.requiresLogin, files.hasAuthorization, files.delete);
+
 
 	app.route('/passIn').post(files.passIn);
 	// Finish by binding the File middleware

@@ -8,6 +8,7 @@ var mongoose = require('mongoose'),
 	Grid = require('gridfs-stream'),
     GridFS = new Grid(mongoose.connection.db, mongoose.mongo),
 	fs = require('fs'),
+	path = require('path'),
 	errorHandler = require('./errors.server.controller'),
 	File = mongoose.model('File'),
 	_ = require('lodash');
@@ -118,3 +119,251 @@ exports.passIn = function(req, res){
 	res = new Buffer(req.body.fileBlob);
 
 };
+
+exports.createRTF = function(req, res){
+	console.log('createRTF');
+	var file = req.body;
+	var file_path = path.join(__dirname, '../..', 'public', 'modules','files', 'download','file.rtf');
+	var file_content = '';
+	var file_keyword = '';
+	file.keywords.split(',').forEach( function(data){
+		file_keyword += '<Keyword> ' + data + ' <Keyword>' + '\n';		
+	});
+	if(file.fileType === 'Book'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<PubLo> ' + file.publisherLocation + ' <PubLo>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType ==='Journal Paper'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<PubLo> ' + file.publisher + ' <PubLo>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Conference Paper Format #1'){
+		file_content += '<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Conference Paper Format #2'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Conf> ' + file.publisher + ' <Conf>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Trade Publication'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Trade Publication with no Author Attribution'){
+		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Newspaper Article with Byline'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Newspaper Article without Byline'){
+		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Doctoral Dissertation'){
+		file_content += '<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType ==='M.S. Thesis'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Technical Manual with Byline'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType ==='Technical Manual without Byline'){
+		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Web Reference with Known Author'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Web Reference with Unknown Author'){
+		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Unpublished Manuscript'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Personal Correspondence or Conversation'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else{
+		file_content += 'Error Type';
+	}
+	
+	file_content += file_keyword;
+
+	fs.writeFile(file_path, file_content, function(err){
+		if(err){
+			res.status(403).send('Cannot write file');
+			throw err;			
+		}
+		else{
+			res.status(200);
+			res.send();
+		}
+	});
+};
+
+exports.createASCII = function(req, res){
+	console.log('createASCII');	
+	var file = req.body;
+	var file_path = path.join(__dirname, '../..', 'public', 'modules','files', 'download','file.txt');
+	var file_content = '';
+	var file_keyword = '';
+	file.keywords.split(',').forEach( function(data){
+		file_keyword += '<Keyword> ' + data + ' <Keyword>' + '\n';		
+	});
+	if(file.fileType === 'Book'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<PubLo> ' + file.publisherLocation + ' <PubLo>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType ==='Journal Paper'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<PubLo> ' + file.publisher + ' <PubLo>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Conference Paper Format #1'){
+		file_content += '<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Conference Paper Format #2'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Conf> ' + file.publisher + ' <Conf>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Trade Publication'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Trade Publication with no Author Attribution'){
+		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Newspaper Article with Byline'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Newspaper Article without Byline'){
+		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Doctoral Dissertation'){
+		file_content += '<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType ==='M.S. Thesis'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Technical Manual with Byline'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType ==='Technical Manual without Byline'){
+		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Web Reference with Known Author'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Web Reference with Unknown Author'){
+		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Unpublished Manuscript'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else if( file.fileType === 'Personal Correspondence or Conversation'){
+		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
+						'<Title> ' + file.title + ' <Title>' + '\n' +
+						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
+						'<Year> ' + file.year + ' <Year>' + '\n';
+	}
+	else{
+		file_content += 'Error Type';
+	}
+	
+	file_content += file_keyword;
+
+	fs.writeFile(file_path, file_content, function(err){
+		if(err){
+			res.status(403).send('Cannot write file');
+			throw err;			
+		}
+		else{
+			res.status(200);
+			res.send();
+		}
+	});
+
+};
+
