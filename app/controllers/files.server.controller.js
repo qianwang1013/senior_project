@@ -127,103 +127,103 @@ exports.createRTF = function(req, res){
 	var file_content = '';
 	var file_keyword = '';
 	file.keywords.split(',').forEach( function(data){
-		file_keyword += '<Keyword> ' + data + ' <Keyword>' + '\n';		
+		file_keyword += 'KWY|' + data + ' KWY' + '|';		
 	});
 	if(file.fileType === 'Book'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<PubLo> ' + file.publisherLocation + ' <PubLo>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'PubLo| ' + file.publisherLocation + ' |PubLo' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType ==='Journal Paper'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<PubLo> ' + file.publisher + ' <PubLo>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'PubLo| ' + file.publisherLocation + ' |PubLo' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Conference Paper Format #1'){
-		file_content += '<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'TTL|' + file.title + ' |TTL' + '|' +
+						'FNA|' + file.author + ' |FNA' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Conference Paper Format #2'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Conf> ' + file.publisher + ' <Conf>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Conf| ' + file.publisher + ' |Conf' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Trade Publication'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Trade Publication with no Author Attribution'){
-		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Newspaper Article with Byline'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Newspaper Article without Byline'){
-		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Doctoral Dissertation'){
-		file_content += '<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'TTL|' + file.title + ' |TTL' + '|' +
+						'FNA|' + file.author + ' |FNA' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType ==='M.S. Thesis'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Technical Manual with Byline'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType ==='Technical Manual without Byline'){
-		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Web Reference with Known Author'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Web Reference with Unknown Author'){
-		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Unpublished Manuscript'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Personal Correspondence or Conversation'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else{
 		file_content += 'Error Type';
@@ -231,6 +231,7 @@ exports.createRTF = function(req, res){
 	
 	file_content += file_keyword;
 
+	res.jsonp(file_content);
 	fs.writeFile(file_path, file_content, function(err){
 		if(err){
 			res.status(403).send('Cannot write file');
@@ -250,103 +251,103 @@ exports.createASCII = function(req, res){
 	var file_content = '';
 	var file_keyword = '';
 	file.keywords.split(',').forEach( function(data){
-		file_keyword += '<Keyword> ' + data + ' <Keyword>' + '\n';		
+		file_keyword += 'KWY|' + data + ' KWY' + '|';		
 	});
 	if(file.fileType === 'Book'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<PubLo> ' + file.publisherLocation + ' <PubLo>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'PubLo| ' + file.publisherLocation + ' |PubLo' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType ==='Journal Paper'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<PubLo> ' + file.publisher + ' <PubLo>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'PubLo| ' + file.publisherLocation + ' |PubLo' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Conference Paper Format #1'){
-		file_content += '<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'TTL|' + file.title + ' |TTL' + '|' +
+						'FNA|' + file.author + ' |FNA' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Conference Paper Format #2'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Conf> ' + file.publisher + ' <Conf>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Conf| ' + file.publisher + ' |Conf' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Trade Publication'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Trade Publication with no Author Attribution'){
-		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Newspaper Article with Byline'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Newspaper Article without Byline'){
-		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Doctoral Dissertation'){
-		file_content += '<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'TTL|' + file.title + ' |TTL' + '|' +
+						'FNA|' + file.author + ' |FNA' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType ==='M.S. Thesis'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Technical Manual with Byline'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType ==='Technical Manual without Byline'){
-		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Web Reference with Known Author'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Web Reference with Unknown Author'){
-		file_content += '<Author> ' + 'Anon' + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Unpublished Manuscript'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else if( file.fileType === 'Personal Correspondence or Conversation'){
-		file_content += '<Author> ' + file.author + ' <Author>' + '\n' +
-						'<Title> ' + file.title + ' <Title>' + '\n' +
-						'<Pub> ' + file.publisher + ' <Pub>' + '\n' +
-						'<Year> ' + file.year + ' <Year>' + '\n';
+		file_content += 'FNA|' + file.author + ' |FNA' + '|' +
+						'TTL|' + file.title + ' |TTL' + '|' +
+						'Pub| ' + file.publisher + ' |Pub' + '|' +
+						'Year| ' + file.year + ' |Year' + '|';
 	}
 	else{
 		file_content += 'Error Type';

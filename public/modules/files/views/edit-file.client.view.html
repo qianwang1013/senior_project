@@ -69,8 +69,12 @@
                 </div>
 
                 <div class = "form-group">
-                    <input type = "file">
+                    <input type = "file" data-ng-model = "pdfFile" pdf>
                 </div>
+                <div data-ng-if = "pdf.flag === 1">
+                    <replace src ="pdf.tmpPath" />
+                </div> 
+
                 <div class="form-group">
                     <input type="submit" value = "update" class="btn btn-default">
                 </div>

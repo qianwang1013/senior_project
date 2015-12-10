@@ -463,16 +463,14 @@
                     <input type = "file" data-ng-model = "pdfFile" pdf>
                 </div>
                 <div data-ng-if = "pdf.flag === 1">
-                    <object data="{{pdf.tmpPath}}" type = "application/pdf" width = 100% height = 500px> </object>
+                    <replace src ="pdf.tmpPath" />
                 </div> 
 
-                <div data-ng-if = "img.flag === 1">
-                    <img src = "{{img.tmpPath}}" width = 100% height = 500px />
-                </div>
 
                 <div class="form-group">
                     <input type="submit" class="btn btn-default">
                 </div>
+
                 <div data-ng-show="error" class="text-danger">
                     <strong data-ng-bind="error"></strong>
                 </div>

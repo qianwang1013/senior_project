@@ -92,6 +92,16 @@ angular.module('files').factory('Files', ['$resource',
     }
 ])
 
+.directive('replace', function() {
+    return {
+        restrict: 'E',
+        link: function(scope, element, attrs) {
+            var url = scope.$eval(attrs.src);
+            element.replaceWith('<object type="application/pdf" data="' + url + '" width = 100% height = 500px></object>');
+        }
+    };
+})
+
 .directive('myCanvas',[ '$document', '$window',
   function($document, $window){
     function link(scope, element, attr){

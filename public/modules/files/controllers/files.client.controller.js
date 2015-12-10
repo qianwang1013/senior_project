@@ -28,7 +28,6 @@ angular.module('files').controller('FilesController', ['$scope', '$stateParams',
 			}
 			// Create new File object
 			var file = new Files ({
-				fileBlob: fileBlob,
 				title: this.title,
 				notes: this.notes,
 				fileType: this.fileType,
